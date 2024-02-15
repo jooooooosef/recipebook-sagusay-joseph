@@ -67,6 +67,8 @@ def recipe_list(request):
         ]
     }
 
+    return render(request, 'recipe_list.html', ctx)
+
 def recipe_one(request):
     ctx = {
         "name": "Recipe 1",
@@ -94,6 +96,8 @@ def recipe_one(request):
         ],
         "link": "/recipe/1"
     }
+
+    return render(request, 'recipe_one.html', ctx)
 
 def recipe_two(request):
     ctx = {
@@ -130,4 +134,6 @@ def recipe_two(request):
         ],
         "link": "/recipe/2"
     }
+
+    return render(request, 'recipe_two.html', ctx)
 # Create your views here.
