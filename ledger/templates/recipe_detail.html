@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title> Recipe One </title>
+        <title> {{ object.name }} </title>
     </head>
 
     <body>
-        <h1> Recipe Book </h1>
-        <h2> {{ recipe.name }} </h2>
+        <h2> {{ object.name }} </h2>
         <h3> Ingredients </h3>
         <ul>
             {% for ingredient in object.ingredients.all %}
