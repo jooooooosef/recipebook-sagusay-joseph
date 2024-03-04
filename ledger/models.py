@@ -21,23 +21,14 @@ class Recipe(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse("recipe", args[self.name])
+        return reverse("ledger:recipe_detail", args=[self.pk])
 
 
 class RecipeIngredient(models.Model):
-    name = models.CharField(max_length=100)
-    quantity = models.ForeignKey(
-        "Ingredient", on_delete=models.CASCADE, related_name="quantity", default=1
-    )
+    quantity = models.CharField(max_length=100)
     ingredient = models.ForeignKey(
-        "Ingredient", on_delete=models.CASCADE, related_name="ingredient", default=1
+        "Ingredient", on_delete=models.CASCADE, related_name="recipe", default=1
     )
     recipe = models.ForeignKey(
-        "Recipe", on_delete=models.CASCADE, related_name="recipe", default=1
+        "Recipe", on_delete=models.CASCADE, related_name="ingredients", default=1
     )
-
-    def __str__(self):
-        return self.name
-
-
-# Create your models here.
