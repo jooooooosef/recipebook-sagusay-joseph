@@ -5,8 +5,10 @@
     </head>
 
     <body>
+
         <h2> {{ object.name }} </h2>
         <h3> Ingredients </h3>
+        <h4> Author: {{ object.author }} </h4>
         <ul>
             {% for ingredient in object.ingredients.all %}
             <li> {{ ingredient.ingredient.name }}: {{ ingredient.quantity }} </li>

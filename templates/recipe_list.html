@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Recipe List </title>
+    </head>
+    <body>
+        {% if request.user.is_authenticated %}
+            <h1> Hello {{ request.user.username }}</h1>
+            <form action="{% url 'logout' %}" method="POST">
+                {% csrf_token %}
+                <button type="submit">LOG OUT</button>
+            </form>
+        {% else %}
+            <h1> Hello </h1>
+            <a href="{% url 'login' %}">LOGIN</a>
+        {% endif %}
+
+        <h3> Recipe Book </h3>
+        <ul>
+            {% for recipe in object_list %}
+            <li> 
+                <a href="{{ recipe.get_absolute_url }}"> 
+                    {{ recipe }}  </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
