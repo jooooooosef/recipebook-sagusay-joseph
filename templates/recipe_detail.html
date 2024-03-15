@@ -1,3 +1,4 @@
+{% extends 'header.html' %}
 <!DOCTYPE html>
 <html>
     <head>
@@ -5,14 +6,16 @@
     </head>
 
     <body>
-
-        <h2> {{ object.name }} </h2>
-        <h3> Ingredients </h3>
-        <h4> Author: {{ object.author }} </h4>
+        
+        {% block content %}
+        <h3 style="background-color: #c1dbc5"> You are currently viewing Recipe {{ object.id }} </h3>
+        <h4> Ingredients </h4>
+        <h5> Author: {{ object.author }} </h5>
         <ul>
             {% for ingredient in object.ingredients.all %}
             <li> {{ ingredient.ingredient.name }}: {{ ingredient.quantity }} </li>
             {% endfor %}
         </ul>
+        {% endblock %}
     </body>
 </html>
